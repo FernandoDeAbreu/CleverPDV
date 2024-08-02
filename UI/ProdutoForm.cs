@@ -19,8 +19,13 @@ namespace UI
             var produto = new ProdutoDto
             {
                 Descricao = tboxDescricao.Text,
-                CodigoFabrica = tboxCodigoBarra.Text,
-                Estoque = double.Parse(tboxEstoqueAtual.Text)
+                CodigoBarras = tboxCodigoBarra.Text,
+                Estoque = double.Parse(tboxEstoqueAtual.Text),
+                CodigoFabrica = tboxCodigoFabrica.Text, 
+                EstoqueMin=double.Parse(tboxEstoqueMin.Text),
+
+
+
             };
 
             await _produtoAppService.Create(produto);
