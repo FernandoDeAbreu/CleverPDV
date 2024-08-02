@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Clever.Application\Clever.Application.csproj" />
+    <ProjectReference Include="..\Clever.Domain.Core\Clever.Domain.Core.csproj" />
+    <ProjectReference Include="..\Clever.Domain.Services\Clever.Domain.Services.csproj" />
+    <ProjectReference Include="..\Clever.Infra.Data.EntityFrameworkCore\Clever.Infra.Data.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Clever.Shared\Clever.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
