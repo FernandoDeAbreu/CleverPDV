@@ -82,11 +82,12 @@
             tboxDescricao.Name = "tboxDescricao";
             tboxDescricao.Size = new Size(942, 29);
             tboxDescricao.TabIndex = 2;
+            tboxDescricao.KeyUp += tboxDescricao_KeyUp;
             // 
             // tboxCodigoBarra
             // 
             tboxCodigoBarra.Location = new Point(14, 137);
-            tboxCodigoBarra.MaxLength = 50;
+            tboxCodigoBarra.MaxLength = 13;
             tboxCodigoBarra.Name = "tboxCodigoBarra";
             tboxCodigoBarra.Size = new Size(349, 29);
             tboxCodigoBarra.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             tboxCodigoFabrica.AcceptsReturn = true;
             tboxCodigoFabrica.Location = new Point(369, 137);
-            tboxCodigoFabrica.MaxLength = 50;
+            tboxCodigoFabrica.MaxLength = 13;
             tboxCodigoFabrica.Name = "tboxCodigoFabrica";
             tboxCodigoFabrica.Size = new Size(349, 29);
             tboxCodigoFabrica.TabIndex = 4;

@@ -1,3 +1,4 @@
+using System.Drawing.Text;
 using Clever.Application.Interfaces;
 using Clever.Shared.Dtos;
 
@@ -28,7 +29,25 @@ namespace UI
                 PrecoVenda = double.Parse(tboxPrecoVenda.Text),
                 Lucro = double.Parse(tboxLucro.Text),
 
+
+
             };
+
+
+            if (tboxCodigoBarra.Text == "")
+            {
+                MessageBox.Show("Campo Código de Barra é Obrigatorio");
+
+            }
+
+            if (tboxCodigoFabrica.Text == "") 
+            {
+                MessageBox.Show("Campo Código de Fábrica é Obrigatorio");
+            }
+
+
+            
+
 
             await _produtoAppService.Create(produto);
 
@@ -108,8 +127,18 @@ namespace UI
             catch (Exception)
             {
                 tboxLucro.Text = "0,00";
-                
+
+            }
+        }
+
+        private void tboxDescricao_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+             tboxCodigoBarra.Focus();
             }
         }
     }
+
+
 }
