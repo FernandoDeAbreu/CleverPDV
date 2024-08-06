@@ -52,6 +52,8 @@
             btnExcluirImagem = new Button();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label11 = new Label();
+            tboxLucro = new TextBox();
             btnSalvar = new Button();
             btnPesquisar = new Button();
             tabPage2 = new TabPage();
@@ -227,7 +229,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(719, 169);
+            label10.Location = new Point(725, 172);
             label10.Name = "label10";
             label10.Size = new Size(116, 21);
             label10.TabIndex = 19;
@@ -284,6 +286,8 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(label11);
+            tabPage1.Controls.Add(tboxLucro);
             tabPage1.Controls.Add(btnSalvar);
             tabPage1.Controls.Add(btnPesquisar);
             tabPage1.Controls.Add(label9);
@@ -313,6 +317,24 @@
             tabPage1.Size = new Size(962, 581);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(305, 225);
+            label11.Name = "label11";
+            label11.Size = new Size(49, 21);
+            label11.TabIndex = 26;
+            label11.Text = "Lucro";
+            // 
+            // tboxLucro
+            // 
+            tboxLucro.Location = new Point(305, 246);
+            tboxLucro.Name = "tboxLucro";
+            tboxLucro.Size = new Size(145, 29);
+            tboxLucro.TabIndex = 25;
+            tboxLucro.Text = "0,00";
+            tboxLucro.Leave += tboxLucro_Leave;
             // 
             // btnSalvar
             // 
@@ -429,5 +451,7 @@
         private Button btnSalvar;
         private Button btnPesquisar;
         private DataGridView dataGridView1;
+        private Label label11;
+        private TextBox tboxLucro;
     }
 }

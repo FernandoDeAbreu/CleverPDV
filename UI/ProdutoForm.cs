@@ -21,14 +21,17 @@ namespace UI
                 Descricao = tboxDescricao.Text,
                 CodigoBarras = tboxCodigoBarra.Text,
                 Estoque = double.Parse(tboxEstoqueAtual.Text),
-                CodigoFabrica = tboxCodigoFabrica.Text, 
-                EstoqueMin=double.Parse(tboxEstoqueMin.Text),
-
-
+                CodigoFabrica = tboxCodigoFabrica.Text,
+                EstoqueMin = double.Parse(tboxEstoqueMin.Text),
+                Medida = tboxUnidadeMedida.Text,
+                PrecoCusto = double.Parse(tboxPrecoCusto.Text),
+                PrecoVenda = double.Parse(tboxPrecoVenda.Text),
+                Lucro = double.Parse(tboxLucro.Text),
 
             };
 
             await _produtoAppService.Create(produto);
+
 
         }
 
@@ -94,6 +97,19 @@ namespace UI
         private void btnEditar_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabPage1;
+        }
+
+        private void tboxLucro_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                tboxLucro.Text = double.Parse(tboxLucro.Text).ToString("N2");
+            }
+            catch (Exception)
+            {
+                tboxLucro.Text = "0,00";
+                
+            }
         }
     }
 }

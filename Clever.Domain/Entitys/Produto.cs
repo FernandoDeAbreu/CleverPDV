@@ -17,4 +17,5 @@ public class Produto
     public double PrecoVenda { get; set; }
     public string? Imagem { get; set; }
     public string? Medida { get; set; }
+    public double? Lucro { get; set;}
 }
