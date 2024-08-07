@@ -29,28 +29,25 @@ namespace UI
                 PrecoVenda = double.Parse(tboxPrecoVenda.Text),
                 Lucro = double.Parse(tboxLucro.Text),
 
-
-
             };
-
-
-            if (tboxCodigoBarra.Text == "")
+             if(tboxDescricao.Text== string.Empty)
             {
-                MessageBox.Show("Campo Código de Barra é Obrigatorio");
-
+                MessageBox.Show("O Campo 'Descrição é Obrigatório!");
+                return;
             }
 
-            if (tboxCodigoFabrica.Text == "") 
+            if (tboxCodigoBarra.Text == string.Empty)
             {
-                MessageBox.Show("Campo Código de Fábrica é Obrigatorio");
+                MessageBox.Show(" O Campo 'Código de Barra' é Obrigatorio!");
+                return;
             }
-
-
-            
-
+            if (tboxCodigoFabrica.Text == string.Empty) 
+            {
+                MessageBox.Show(" O 'Campo Código de Fábrica' é Obrigatorio!");
+                return;
+            }
 
             await _produtoAppService.Create(produto);
-
 
         }
 
