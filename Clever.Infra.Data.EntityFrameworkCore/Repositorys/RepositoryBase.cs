@@ -38,7 +38,7 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
 
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        return await _context.Set<TEntity>().ToListAsync();
+        return await _context.Set<TEntity>().AsNoTracking().ToListAsync();
     }
 
     public async Task<IEnumerable<TEntity>> GetByFilterAsync(Expression<Func<TEntity, bool>> filter)
@@ -46,10 +46,19 @@ public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : 
         return await _context.Set<TEntity>().Where(filter).ToListAsync();
     }
 
-    public async Task<TEntity> GetByIdAsync(int id)
+    public async Task<TEntity> GetById(int id)
     {
         var entity = await _context.Set<TEntity>().FindAsync(id) ?? throw new KeyNotFoundException($"Não encontrado{id}");
 
+        return entity;
+    }
+
+    public async Task<TEntity?> GetAsNoTracking(Expression<Func<TEntity, bool>> predicate)
+    {
+        var entity = await _context.Set<TEntity>()
+                               .AsNoTracking()
+                               .Where(predicate)
+                               .FirstOrDefaultAsync();
         return entity;
     }
 }

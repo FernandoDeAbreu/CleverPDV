@@ -25,7 +25,7 @@ namespace UI
 
             var serviceProvider = ConfigureServices();
 
-            var form = serviceProvider.GetService<ProdutoForm>();
+            var form = serviceProvider.GetService<MenuForm>();
             Application.Run(form);
         }
 
@@ -34,15 +34,22 @@ namespace UI
             var services = new ServiceCollection();
 
             services.AddDbContext<CleverDbContext>(options =>
-                options.UseInMemoryDatabase("SuaStringDeConexao"));
+            {
+                options.UseInMemoryDatabase("SuaStringDeConexao");
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
 
-            services.AddTransient<IProdutoAppService, ProdutoAppService>();
-            services.AddTransient<IProdutoService, ProdutoService>();
-            services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IProdutoAppService, ProdutoAppService>();
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+
+            services.AddScoped<ICategoriaAppService, CategoriaAppService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
             services.AddAutoMapper(typeof(MappingProfile));
 
-            services.AddTransient<ProdutoForm>();
+            services.AddTransient<MenuForm>();
 
             return services.BuildServiceProvider();
         }

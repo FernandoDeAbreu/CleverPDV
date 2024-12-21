@@ -34,6 +34,8 @@ public class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : class
 
     public async Task<TEntity> GetById(int id)
     {
-        return await _repositoryBase.GetByIdAsync(id);
+        return await _repositoryBase.GetById(id);
     }
+
+   
 }

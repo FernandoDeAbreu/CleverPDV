@@ -4,7 +4,7 @@ public interface IAppServiceBase<Dto>
 {
     Task<Dto> Create(Dto model);
 
-    Task<Dto> Update(Dto model);
+    Task<Dto> UpdateAsync(Dto model);
 
     Task Delete(int id);
 

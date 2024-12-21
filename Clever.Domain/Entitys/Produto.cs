@@ -6,11 +6,8 @@ public class Produto
 {
     public int Id { get; set; }
     public string? Descricao { get; set; }
-
-    [Display(Name = "Código de Barras")]
     public string? CodigoBarras { get; set; }
-
-    public string CodigoFabrica { get; set; }
+    public string? CodigoFabrica { get; set; }
     public double Estoque { get; set; }
     public double EstoqueMin { get; set; }
     public double PrecoCusto { get; set; }

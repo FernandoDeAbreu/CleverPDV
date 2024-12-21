@@ -10,7 +10,9 @@ public interface IRepositoryBase<TEntity> where TEntity : class
 
     Task DeleteAsync(int id);
 
-    Task<TEntity> GetByIdAsync(int id);
+    Task<TEntity> GetById(int id);
+
+    Task<TEntity?> GetAsNoTracking(Expression<Func<TEntity, bool>> predicate);
 
     Task<IEnumerable<TEntity>> GetAllAsync();
 

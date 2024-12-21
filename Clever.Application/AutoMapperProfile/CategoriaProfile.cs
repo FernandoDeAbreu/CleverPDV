@@ -4,10 +4,10 @@ using Clever.Shared.Dtos;
 
 namespace Clever.Application.AutoMapperProfile;
 
-public class ProdutoProfile : Profile
+public class CategoriaProfile : Profile
 {
-    public ProdutoProfile()
+    public CategoriaProfile()
     {
-        CreateMap<ProdutoDto, Produto>().ReverseMap();
+        CreateMap<CategoriaDto, Categoria>().ReverseMap();
     }
 }

@@ -21,7 +21,7 @@ public class AppServiceBase<Dto, TEntity> : IAppServiceBase<Dto> where TEntity :
         return _mapper.Map<Dto>(entity);
     }
 
-    public async Task<Dto> Update(Dto model)
+    public async Task<Dto> UpdateAsync(Dto model)
     {
         var entity = await _service.Update(_mapper.Map<TEntity>(model));
         return _mapper.Map<Dto>(entity);
